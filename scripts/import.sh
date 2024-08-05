@@ -7,7 +7,8 @@ singlearch(){
 multiarch(){
     cp -r /import/linux_${TARGETARCH}/* /export/
     for arch in /import ; do
-        cp /import/${arch}/incus-agent.linux.* /export/bin/incus-agent.linux.*
+        echo "Copying incus-agent.linux.* from ${arch}"
+        cp ${arch}/incus-agent.linux.* /export/bin/incus-agent.linux.*
     done
     rm /export/bin/incus-agent
 }
