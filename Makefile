@@ -20,7 +20,7 @@ build:
 # 	podman rmi -f temp/incus-temp
 
 ct-min : build
-	podman build --build-arg INCUS_VERSION=$(INCUS_VERSION) --build-arg CURRENT_DIR=$(current_dir) --platform $(PLATFORM) -t $(IMAGE_NAME) $(current_dir)/container/min
+	podman build --build-arg INCUS_VERSION=$(INCUS_VERSION) CURRENT_DIR=$(current_dir) --platform $(PLATFORM) -t $(IMAGE_NAME) $(current_dir)/container/min
 
 clean:
 	rm -rf $(current_dir)/build
