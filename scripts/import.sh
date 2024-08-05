@@ -1,4 +1,16 @@
 #!/bin/bash
+singlearch(){
+    cp -r /import/linux_${TARGETARCH}/* /export/
+    rm /export/bin/incus-agent.linux.$(uname -m)
+}
+
+multiarch(){
+    cp -r /import/linux_${TARGETARCH}/* /export/
+    for arch in /import ; do
+        cp /import/${arch}/incus-agent.linux.* /export/bin/incus-agent.linux.*
+    done
+    rm /export/bin/incus-agent
+}
 
 #check if the build is multiarch or not
 
@@ -12,16 +24,3 @@ else
     echo "Multi arch build"
     multiarch
 fi
-
-singlearch(){
-    cp -r /import/linux_${TARGETARCH}/* /export/
-    rm /export/bin/incus-agent.linux.$(uname -m)
-}
-
-multiarch(){
-    cp -r /import/linux_${TARGETARCH}/* /export/
-    for arch in /import ; do
-        cp /import/${arch}/incus-agent.linux.* /export/bin/incus-agent.linux.*
-    done
-    rm /export/bin/incus-agent
-}
