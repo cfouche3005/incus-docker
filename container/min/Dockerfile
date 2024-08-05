@@ -3,6 +3,9 @@ ARG TARGETARCH
 
 FROM alpine as prepare
 
+ARG TARGETARCH
+ENV TARGETARCH=$TARGETARCH
+
 RUN apk add --no-cache \
     bash
 
