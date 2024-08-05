@@ -58,4 +58,4 @@ ENV LD_LIBRARY_PATH="/incus/lib/deps/cowsql/.libs/:/incus/lib/deps/raft/.libs/:$
 RUN echo ${PATH}
 RUN echo ${LD_LIBRARY_PATH}
 
-CMD ["/incus/bin/incusd"]
+CMD ["/script/start.sh"]
