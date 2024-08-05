@@ -7,7 +7,8 @@ ARG TARGETARCH
 ENV TARGETARCH=$TARGETARCH
 
 RUN apk add --no-cache \
-    bash
+    bash \
+    tree
 
 RUN mkdir -p /scripts
 RUN mkdir -p /import
@@ -15,6 +16,8 @@ RUN mkdir -p /export
 
 COPY scripts /scripts
 COPY build/* /import/build/
+
+RUN tree /import
 
 RUN find /scripts -name '*.sh' -exec chmod +x {} +
 RUN /scripts/import.sh
