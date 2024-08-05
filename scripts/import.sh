@@ -10,7 +10,7 @@ multiarch(){
     for arch in /import/* ; do
         echo "Copying incus-agent.linux.* from ${arch}"
         ls -1 ${arch}
-        cp ${arch}/incus-agent.linux.* /export/bin/
+        cp ${arch}/bin/incus-agent.linux.* /export/bin/
     done
     rm /export/bin/incus-agent
 }
@@ -30,3 +30,7 @@ else
     echo "Unknown error"
     exit 1
 fi
+
+ls /export/bin
+ls /export/incus
+ls /export
