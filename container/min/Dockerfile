@@ -55,4 +55,7 @@ COPY --from=storage /incus/bin/incusd /incus/bin/incusd
 ENV PATH="/incus/bin:${PATH}"
 ENV LD_LIBRARY_PATH="/incus/lib/deps/cowsql/.libs/:/incus/lib/deps/raft/.libs/:${LD_LIBRARY_PATH}"
 
+RUN echo ${PATH}
+RUN echo ${LD_LIBRARY_PATH}
+
 CMD ["/incus/bin/incusd"]
