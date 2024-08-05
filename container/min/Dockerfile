@@ -53,6 +53,6 @@ RUN mkdir -p /incus/bin
 COPY --from=storage /incus/bin/incusd /incus/bin/incusd
 
 ENV PATH="/incus/bin:${PATH}"
-ENV LD_LIBRARY_PATH="/incus/lib/deps/cowsql/.libs/:/incus/lib/deps/raft/.libs/:${LD_LIBRARY_PATH}"
+ENV LD_LIBRARY_PATH="/incus/lib/vendor/cowsql/.libs/:/incus/lib/vendor/raft/.libs/:${LD_LIBRARY_PATH}"
 
 CMD ["/scripts/start.sh"]
