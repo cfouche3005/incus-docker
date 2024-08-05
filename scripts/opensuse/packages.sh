@@ -7,4 +7,5 @@ zypper --non-interactive install \
     ebtables \
     nftables \
     iproute2 \
-    liblxc1
+    liblxc1 \
+    liblz4-1
