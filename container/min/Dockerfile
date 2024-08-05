@@ -30,9 +30,8 @@ ENV TARGETARCH=$TARGETARCH
 ENV FLAVOR=min
 
 RUN mkdir -p /scripts
-COPY scripts /scripts
+COPY --from=storage /scripts /scripts
 
-RUN find /scripts -name '*.sh' -exec chmod +x {} +
 RUN /scripts/packages.sh
 
 # RUN zypper --non-interactive install \
