@@ -1,12 +1,7 @@
 #!/bin/bash
 
 opensuse-tumbleweed(){
-    echo "Installing packages for OpenSUSE Tumbleweed"
-    #common packages
-    zypper --non-interactive install \
-        iptables \
-        ebtables \
-        nftables 
+    
 }
 
 ubuntu(){

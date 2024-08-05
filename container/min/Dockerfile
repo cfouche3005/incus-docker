@@ -1,5 +1,7 @@
-ARG CURRENT_DIR
+# Description: Dockerfile for building the minimal image of Incus
+
 ARG TARGETARCH
+ARG INCUS_FLAVOR=min
 
 FROM alpine as prepare
 
@@ -27,11 +29,12 @@ FROM opensuse/tumbleweed as runtime
 
 ARG TARGETARCH
 ENV TARGETARCH=$TARGETARCH
-ENV FLAVOR=min
+ARG INCUS_FLAVOR
+ENV INCUS_FLAVOR=min
 
 RUN mkdir -p /scripts
 COPY --from=prepare /scripts /scripts
-RUN /scripts/packages.sh
+RUN /scripts/opensuse/packages.sh
 
 # RUN zypper --non-interactive install \
 #     libacl1 \
