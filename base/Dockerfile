@@ -44,17 +44,17 @@ RUN cp /root/go/bin/incus-agent /root/go/bin/incus-agent.linux.$(uname -m)
 
 #store incus files in a container image
 #podman config
-# FROM scratch AS output 
-
-# ARG TARGETARCH
-
-# COPY --from=builder /build/incus /linux_${TARGETARCH}/incus
-# COPY --from=builder /root/go/bin /linux_${TARGETARCH}/bin
-
-# docker config
 FROM scratch AS output 
 
 ARG TARGETARCH
 
-COPY --from=builder /build/incus /incus
-COPY --from=builder /root/go/bin /bin
+COPY --from=builder /build/incus /linux_${TARGETARCH}/incus
+COPY --from=builder /root/go/bin /linux_${TARGETARCH}/bin
+
+# docker config
+# FROM scratch AS output 
+
+# ARG TARGETARCH
+
+# COPY --from=builder /build/incus /incus
+# COPY --from=builder /root/go/bin /bin
