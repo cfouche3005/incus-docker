@@ -30,8 +30,7 @@ ENV TARGETARCH=$TARGETARCH
 ENV FLAVOR=min
 
 RUN mkdir -p /scripts
-COPY --from=storage /scripts /scripts
-
+COPY --from=prepare /scripts /scripts
 RUN /scripts/packages.sh
 
 # RUN zypper --non-interactive install \
