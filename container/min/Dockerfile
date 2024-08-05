@@ -47,3 +47,14 @@ RUN /scripts/packages.sh
 #     liblz4-1 \
 #     libudev1 \
 #     systemd
+
+RUN mkdir -p /incus/lib
+COPY --from=storage /incus/lib /incus/lib
+
+RUN mkdir -p /incus/bin
+COPY --from=storage /incus/bin/incusd /incus/bin/incusd
+
+ENV PATH="/incus/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/incus/lib/deps/cowsql/.libs/:/incus/lib/deps/raft/.libs/:${LD_LIBRARY_PATH}"
+
+CMD ["/incus/bin/incusd"]
