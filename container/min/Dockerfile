@@ -14,7 +14,7 @@ RUN mkdir -p /import
 RUN mkdir -p /export
 
 COPY scripts /scripts
-COPY build /import/build
+COPY build/* /import/build/
 
 RUN find /scripts -name '*.sh' -exec chmod +x {} +
 RUN /scripts/import.sh
