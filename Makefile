@@ -10,7 +10,7 @@ test:
 
 build:
 	mkdir -p $(current_dir)/build
-	podman build --build-arg INCUS_VERSION=$(INCUS_VERSION) --platform $(PLATFORM) --output type=local,dest=$(current_dir)/build  $(current_dir)/base
+	podman build --build-arg INCUS_VERSION=$(INCUS_VERSION) --platform $(PLATFORM) --output type=local,dest=$(current_dir)/build -f $(current_dir)/base/Dockerfile .
 
 # build-multi:
 # 	podman build --build-arg INCUS_VERSION=$(INCUS_VERSION) --platform "linux/amd64,linux/arm64" -t temp/incus-temp $(current_dir)/base
@@ -20,7 +20,7 @@ build:
 # 	podman rmi -f temp/incus-temp
 
 ct-min : build
-	podman build --build-arg INCUS_VERSION=$(INCUS_VERSION) --build-arg CURRENT_DIR=$(current_dir) --platform $(PLATFORM) -t $(IMAGE_NAME) $(current_dir)/container/min
+	podman build --build-arg INCUS_VERSION=$(INCUS_VERSION) --build-arg CURRENT_DIR=$(current_dir) --platform $(PLATFORM) -t $(IMAGE_NAME) -f $(current_dir)/container/min/Dockerfile .
 
 clean:
 	rm -rf $(current_dir)/build
