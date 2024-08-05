@@ -10,4 +10,5 @@ zypper --non-interactive install \
     liblxc1 \
     liblz4-1 \
     libuv1 \
-    rsync 
+    rsync \
+    attr 
