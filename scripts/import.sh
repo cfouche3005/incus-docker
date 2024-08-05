@@ -14,13 +14,16 @@ multiarch(){
 
 #check if the build is multiarch or not
 
-if [[ $(ls -1 /import/build | wc -l) -eq 0 ]]; then
+if [[ $(ls -1 /import | wc -l) -eq 0 ]]; then
     echo "No files found in build directory"
     exit 1
-elif [[ $(ls -1 /import/build | wc -l) -eq 1 ]]; then
+elif [[ $(ls -1 /import | wc -l) -eq 1 ]]; then
     echo "Single arch build"
     singlearch
-else
+elif [[ $(ls -1 /import | wc -l) -gt 1 ]]; then
     echo "Multi arch build"
     multiarch
+else
+    echo "Unknown error"
+    exit 1
 fi
