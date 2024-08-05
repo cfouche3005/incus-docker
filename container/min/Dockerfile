@@ -15,7 +15,7 @@ RUN mkdir -p /import
 RUN mkdir -p /export
 
 COPY scripts /scripts
-COPY build/linux_* /import/build/
+COPY build/linux_* /import/
 
 RUN tree /import
 
