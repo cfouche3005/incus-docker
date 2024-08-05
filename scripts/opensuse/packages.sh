@@ -9,4 +9,5 @@ zypper --non-interactive install \
     iproute2 \
     liblxc1 \
     liblz4-1 \
-    libuv1 
+    libuv1 \
+    rsync 
