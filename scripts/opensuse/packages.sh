@@ -5,4 +5,6 @@ echo "Installing packages for OpenSUSE distribution"
 zypper --non-interactive install \
     iptables \
     ebtables \
-    nftables 
+    nftables \
+    iproute2 \
+    liblxc1
