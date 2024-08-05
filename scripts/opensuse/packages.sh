@@ -11,4 +11,5 @@ zypper --non-interactive install \
     liblz4-1 \
     libuv1 \
     rsync \
-    attr 
+    attr \
+    squashfs
